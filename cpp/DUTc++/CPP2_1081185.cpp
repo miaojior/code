@@ -4,11 +4,11 @@
 int main()
 {
     double a, b, c;
-    printf("è¾“å…¥ä¸€å…ƒäºŒæ¬¡æ–¹ç¨‹ç³»æ•°: ");
+    printf("ÊäÈëÒ»Ôª¶þ´Î·½³ÌÏµÊý: ");
     scanf("%lf %lf %lf", &a, &b, &c);
     double delta = b * b - 4 * a * c;
     double x1 = (-b + sqrt(delta)) / (2 * a);
     double x2 = (-b - sqrt(delta)) / (2 * a);
-    printf("è§£å‡ºä¸€å…ƒäºŒæ¬¡æ–¹ç¨‹çš„å®žæ ¹: %.4f,%.4f\n", x1, x2);
+    printf("½â³öÒ»Ôª¶þ´Î·½³ÌµÄÊµ¸ù: %.4f,%.4f\n", x1, x2);
     return 0;
 }
