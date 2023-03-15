@@ -7,5 +7,3 @@ int main()
   printf("%10.2f\n",a);
   printf("%5.4f\n",a);
 }
-
-
