@@ -1,14 +1,15 @@
+
 #include <iostream>
 
 int main()
 {
     int num;
-    std::cout << "ÊäÈëÈÎÒâÒ»¸ö3Î»ÕıÕûÊı: ";
+    std::cout << "è¾“å…¥ä»»æ„ä¸€ä¸ª3ä½æ­£æ•´æ•°: ";
     std::cin >> num;
     int a = num / 100;
     int b = (num / 10) % 10;
     int c = num % 10;
     int result = c * 100 + b * 10 + a;
-    std::cout << "ÊäÈëµÄ3Î»ÕıÕûÊıµÄÄæĞòÊı: " << result << std::endl;
+    std::cout << "è¾“å…¥çš„3ä½æ­£æ•´æ•°çš„é€†åºæ•°: " << result << std::endl;
     return 0;
 }
