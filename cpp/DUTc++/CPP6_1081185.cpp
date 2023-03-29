@@ -25,5 +25,3 @@ int main() {
     printf("不能写成两个素数之和\n");
     return 0;
 }
-
-
