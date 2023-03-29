@@ -19,13 +19,12 @@ int main() {
     std::cout << "输入任意一个正整数: ";
     std::cin >> m;
     get_primes(m);
-    bool flag = false;
     for (int i = 0; primes[i] <= m / 2; ++i) {
         if (!st[m - primes[i]]) {
             std::cout << "能写成两个素数之和，两个素数是：" << primes[i] << "和" << m - primes[i] << std::endl;
-            flag = true;
+            return 0;
         }
     }
-    if (!flag) std::cout << "不能写成两个素数之和" << std::endl;
+    std::cout << "不能写成两个素数之和" << std::endl;
     return 0;
 }
