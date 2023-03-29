@@ -18,7 +18,7 @@ int main() {
                 break;
             }
         if (isPrime1&&isPrime2) {
-            printf("能写成两个素数之和，两个素数是: %d和%d\n", i, m - i);
+            printf("能写成两个素数之和，两个素数是: %d和%d\n",i,m-i);
             return 0;
         }
     }
