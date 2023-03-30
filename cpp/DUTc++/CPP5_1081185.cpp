@@ -20,9 +20,6 @@ int main(){
     return 0;
 }
 
-
-
-
 /*the most ordinary solution*/
 /*
 int main(){
