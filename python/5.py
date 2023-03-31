@@ -17,8 +17,5 @@ for i in range(1, 11):
     # 计算第i年你在月球上的体重
     weight_moon_i = weight_earth_i * gravity_moon
     # 将结果以元组的形式添加到列表中
-    weight_list.append((weight_earth_i, weight_moon_i))
+    print(f"第{i}年，你在地球上的体重是{weight_earth_i:f}kg，你在月球上的体重是{weight_moon_i:f}kg。")
 
-# 打印列表中的每个元素，显示你在地球和月球上的体重情况
-for j in range(len(weight_list)):
-    print(f"第{j+1}年，你在地球上的体重是{weight_list[j][0]:.2f}kg，你在月球上的体重是{weight_list[j][1]:.2f}kg。")
