@@ -2,37 +2,32 @@
 #include <cstring>
 using std::cin,std::cout,std::endl;
 
+const int subject=3,charlength=20,student=5;
+char names[student][charlength],queryName[20];
+int scores[5],score;
+
 int main(){
-    char names[5][20],queryName[20];
-    int math[5],english[5],physics[5];
-    for (int i=0;i<5;i++){
+    for (int i=0;i<student;i++){
         cout<<"第"<<i+1<<"个学生成绩输入："<<endl<<"姓名：";
         cin>>names[i];
-        cout<<"高等数学：";
-        cin>>math[i];
-        cout<<"英语：";
-        cin>>english[i];
-        cout<<"物理：";
-        cin>>physics[i];
+        for(int j=0;j<subject;j++){
+            cout<<(j==0?"高等数学":(j==1?"英语":"物理"))<<"：";
+            cin>>score;
+            scores[i]+=score;
+        }
     }
     
     cout<<"成绩输入结束！"<<endl<<"输入查询学生姓名：";
     cin>>queryName;
     
-    int flag=-1;
-    for (int i = 0; i < 5; i++)
+    for (int i=0;i<student;i++)
         if (!strcmp(names[i],queryName)){
-            flag = i;
-            break;
-        }
-    if (flag != -1){
-        int totalScore=math[flag]+english[flag]+physics[flag];
-        cout<<queryName<<"成绩总分："<<totalScore;
-        if(totalScore>270)
-            cout << "    优秀";
-        cout<<endl;
+            cout<<queryName<<"成绩总分："<<scores[i];
+            if(scores[i]>270)
+                cout<<"\t优秀";
+            cout<<endl;
+            return 0;
     } 
-    else
-        cout << "没有查到该学生" << endl;
+    cout<<"没有查到该学生"<<endl;
     return 0;
 }
