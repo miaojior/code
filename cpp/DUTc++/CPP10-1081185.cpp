@@ -3,8 +3,8 @@
 using std::cin,std::cout,std::endl;
 
 const int subject=3,charlength=20,student=5;
-char names[student][charlength],queryName[20];
-int scores[5],score;
+char names[student][charlength],queryName[charlength];
+int scores[student],score;
 
 int main(){
     for (int i=0;i<student;i++){
@@ -20,14 +20,16 @@ int main(){
     cout<<"成绩输入结束！"<<endl<<"输入查询学生姓名：";
     cin>>queryName;
     
+    bool nobody=true;
     for (int i=0;i<student;i++)
         if (!strcmp(names[i],queryName)){
             cout<<queryName<<"成绩总分："<<scores[i];
             if(scores[i]>270)
                 cout<<"\t优秀";
             cout<<endl;
-            return 0;
+            nobody=false;
     } 
+    if(nobody)
     cout<<"没有查到该学生"<<endl;
     return 0;
 }
