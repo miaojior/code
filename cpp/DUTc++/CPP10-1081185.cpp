@@ -28,7 +28,7 @@ int main(){
                 cout<<"\t优秀";
             cout<<endl;
             nobody=false;
-    } 
+    }
     if(nobody)
     cout<<"没有查到该学生"<<endl;
     return 0;
