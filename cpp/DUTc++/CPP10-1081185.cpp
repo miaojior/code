@@ -1,6 +1,6 @@
 #include <iostream>
 #include <cstring>
-using std::cin,std::cout,std::endl;
+using std::cout; using std::endl; using std::cin;
 
 const int subject=3,charlength=20,student=5;
 char names[student][charlength],queryName[charlength];
@@ -25,7 +25,7 @@ int main(){
         if (!strcmp(names[i],queryName)){
             cout<<queryName<<"成绩总分："<<scores[i];
             if(scores[i]>270)
-                cout<<"\t优秀";
+                cout<<"    优秀";
             cout<<endl;
             nobody=false;
     }
