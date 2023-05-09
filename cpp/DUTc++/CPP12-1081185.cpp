@@ -8,7 +8,7 @@ double y(int n){
         for(int i=1;i<=n;i+=2) 
             y+=1.0/(2*i+1);
     else{//even
-        double t=1.0;
+        long long t=1;
         for (int i=2;i<=n;i+=2){
             t*=(i-1)*i;
             y+=1.0/t;    
