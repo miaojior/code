@@ -1,6 +1,8 @@
 #include <bits/stdc++.h>
 
+using namespace std;
+
 int main(){
-    std::cout<<a<<std::endl<<&a<<std::endl;
+    cout<<"wotmlaila"<<endl;
     return 0;
 }
