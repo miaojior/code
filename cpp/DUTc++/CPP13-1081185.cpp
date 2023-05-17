@@ -6,7 +6,7 @@ const int MAXN=10010;
 char s[MAXN];
 int i,n;
 
-void del(char* s,int i,int n){
+void del(char s[],int i,int n){
     int len=strlen(s);
     //memmove(s+i-1, s+i+n-1, len-i-n+2);
     for (int j=i+n-1;j<=len;j++)
