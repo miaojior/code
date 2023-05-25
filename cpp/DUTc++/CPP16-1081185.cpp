@@ -10,7 +10,7 @@ class CDate{
         inline void printNextDay();
     private:
         int year,month,day;
-        const int MONTHOFYEAR=12;
+        static const int MONTHOFYEAR=12;
         inline bool isleapyear();
         inline int getDaysofMonth();
         inline void addADay();
