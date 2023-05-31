@@ -5,7 +5,7 @@ using namespace std;
 
 int main(){
     int a=-5;
-    int b=a;
+    int b=a%2;
     printf("%d",b);
     return 0;
 }
