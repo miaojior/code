@@ -1,11 +1,8 @@
-#include <iostream>
-#include <iomanip>
+#include <bits/stdc++.h>
 
 using namespace std;
 
 int main(){
-    int a=5;
-    int b=a%2;
-    printf("%d",b);
-    return 0;
+    int a=1,b=2,c=3;
+    cout<<(a<=b<=c)<<endl;
 }
