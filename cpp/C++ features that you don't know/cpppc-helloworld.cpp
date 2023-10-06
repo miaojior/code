@@ -1,4 +1,4 @@
-//19岁辍学开发一种新的编程语言 cpppc
+// cpppc
 #include "cpppc.h"
 
 整形 主函数
