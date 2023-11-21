@@ -21,8 +21,8 @@ int main(int argc,const char *argv[])
 	memset(&header,0,sizeof(header));
     memset(&tmp,0,sizeof(tmp));
  
-	compress("input.txt","测试文档.txt.zip");
-	uncompress("测试文档.txt.zip","测试文档.txt 解压后.txt");
+	compress("input.txt","file.zip");
+	uncompress("file.zip","output.txt");
  
 	return 0;
 }
@@ -180,7 +180,6 @@ int compress(const char *filename,const char *outputfile)
  
 	printf("读取将要压缩的文件:%s\n",filename);
 	printf("当前文件有:%ld字符\n",flength);
-	printf("正在压缩\n");
  
     while (!feof(ifp))
     {
@@ -305,8 +304,7 @@ int uncompress(const char *filename,const char *outputfile)
  
 	printf("将要读取解压的文件:%s\n",filename);
 	printf("当前文件有:%d字符\n",len);
-	printf("正在解压\n");
- 
+
     fread(&flength, sizeof(long), 1, ifp);                                    //读取原文件长
     fread(&f, sizeof(long), 1, ifp);
     fseek(ifp, f, SEEK_SET);
