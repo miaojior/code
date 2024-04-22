@@ -1,4 +1,3 @@
-// 初始化队列
 void InitQueue(SqQueue &Q){
     Q.base = (BiTree*)malloc(MAXQSIZE*sizeof(BiTree));
     if(!Q.base){
@@ -8,7 +7,6 @@ void InitQueue(SqQueue &Q){
     Q.front=Q.rear = 0;
 }
 
-// 入队
 bool EnQueue(SqQueue &Q, BiTree e){
     if( (Q.rear + 1) % MAXQSIZE == Q.front ){
         printf("Queue Full.");
@@ -19,7 +17,6 @@ bool EnQueue(SqQueue &Q, BiTree e){
     return true;
 }
 
-// 出队
 bool DeQueue(SqQueue &Q, BiTree &e){
     if( (Q.rear + 1)%MAXQSIZE == Q.front ){
         printf("Queue Empty.");
@@ -41,7 +38,7 @@ bool IsCompleteBinaryTree(BiTree root){
         BiTree node;
         DeQueue(Q, node);
         if(node){
-            if(flag) // 如果flag为true，说明前面出现过空结点，不是完全二叉树
+            if(flag)
                 return false;
             EnQueue(Q, node->lchild);
             EnQueue(Q, node->rchild);
@@ -57,7 +54,6 @@ bool IsCompleteBinaryTree(BiTree root){
 
 
 
-// 初始化队列
 void InitQueue(SqQueue &Q){
     Q.base = (BiTree*)malloc(MAXQSIZE*sizeof(BiTree));
     if(!Q.base){
@@ -67,7 +63,7 @@ void InitQueue(SqQueue &Q){
     Q.front=Q.rear = 0;
 }
 
-// 入队
+
 bool EnQueue(SqQueue &Q, BiTree e){
     if( (Q.rear + 1) % MAXQSIZE == Q.front){
         printf("Queue Full.");
@@ -78,7 +74,7 @@ bool EnQueue(SqQueue &Q, BiTree e){
     return true;
 }
 
-// 出队
+
 bool DeQueue(SqQueue &Q, BiTree &e){
     if ((Q.rear + 1) % MAXQSIZE == Q.front){
         printf("Queue Empty.");
@@ -89,7 +85,7 @@ bool DeQueue(SqQueue &Q, BiTree &e){
     return true;
 }
 
-// 计算最小深度
+
 int minDepth(BiTree root){
     if(!root) return 0;
     SqQueue Q;
