@@ -1,54 +1,51 @@
 #include <iostream>
 #include <string>
+using std::cin; using std::cout; using std::endl;
 
-using namespace std;
+class Palindrome{
+public:
+    void findLongestPalindrome(const std::string& input);
+private:
+    void expandAroundCenter(const std::string& s, int left, int right, int& start, int& maxLength, int &s_Length);
+}palindromeFinder;
 
-class PalindromeFinder {
-private:                                                                                                                                                                           
-    string input;
-    int maxLength;
-    string longestPalindrome;
-    void expandAroundCenter(int left, int right) {
-        while (left >= 0 && right < input.length() && input[left] == input[right]) {
-            if (right - left + 1 > maxLength) {
-                maxLength = right - left + 1;
-                longestPalindrome = input.substr(left, maxLength);
+int main(){
+    std::string input;
+    cin >> input;
+    palindromeFinder.findLongestPalindrome(input);
+    return 0;
+}
+
+void Palindrome::findLongestPalindrome(const std::string& input){
+        int n = input.length();
+        if(n == 0){
+            cout << 0 << endl;
+            return;
+        }
+
+        int start = 0, maxLength = 1;
+        for(int i = 0; i < n; i++){
+            expandAroundCenter(input, i, i, start, maxLength, n);
+            expandAroundCenter(input, i, i + 1, start, maxLength, n);
+        }
+
+        if(maxLength == 1)
+            cout << 0 << endl;
+        else
+            cout << maxLength << endl
+                 <<input.substr(start, maxLength) << endl;
+        
+    }
+
+void Palindrome::expandAroundCenter(const std::string& s, int left, int right, int& start, int& maxLength, int &s_Length){
+        int currentLength;
+        while (left >= 0 && right < s_Length && s[left] == s[right]){
+            currentLength = right - left + 1;
+            if (currentLength > maxLength){
+                start = left;
+                maxLength = currentLength;
             }
             left--;
             right++;
         }
     }
-
-public:
-    PalindromeFinder(string str) {
-        input = str;
-        maxLength = 0;
-        longestPalindrome = "";
-    }
-
-    void findLongestPalindrome() {
-        for (int i = 0; i < input.length(); ++i) {
-            expandAroundCenter(i, i);
-            expandAroundCenter(i, i + 1);
-        }
-    }
-    void printLongestPalindrome() {
-        if (maxLength > 0) {
-            cout << maxLength << endl;
-            cout << longestPalindrome << endl;
-        } else {
-            cout << "0" << endl;
-        }
-    }
-};
-
-int main() {
-    string inputStr;
-    getline(cin, inputStr);
-
-    PalindromeFinder finder(inputStr);
-    finder.findLongestPalindrome();
-    finder.printLongestPalindrome();
-
-    return 0;
-}
