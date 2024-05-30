@@ -12,26 +12,26 @@ struct  Student
 
 void  sort(struct  Student  *  pArr,  int  N)    
 {
-    int i, j;
     struct Student temp;
-    for (i = 0; i < N - 1; i++)
-        for (j = 0; j < N - 1 - i; j++)
+    for (int i = 0; i < N - 1; i++)
+        for (int j = 0; j < N - 1 - i; j++)
             if (pArr[j].score > pArr[j + 1].score){
                 temp = pArr[j];
                 pArr[j] = pArr[j + 1];
                 pArr[j + 1] = temp;
-            }else if(pArr[j].score == pArr[j + 1].score)
+            }else if(pArr[j].score == pArr[j + 1].score){
                 if(strcmp(pArr[j].name, pArr[j + 1].name) > 0){
                     temp = pArr[j];
                     pArr[j] = pArr[j + 1];
                     pArr[j + 1] = temp;
-                }else if(strcmp(pArr[j].name, pArr[j + 1].name) == 0)
+                }else if(strcmp(pArr[j].name, pArr[j + 1].name) == 0){
                     if (pArr[j].age > pArr[j + 1].age){
                         temp = pArr[j];
                         pArr[j] = pArr[j + 1];
                         pArr[j + 1] = temp;
                     }
-            
+                }
+            }
 }
 
 int  main()

@@ -59,7 +59,8 @@ void  CreateUDN(AMGraph  &G){
         }//for
 }//CreateUDN  
 
-void  ShortestPath_Floyed(AMGraph  G){  
+void  ShortestPath_Floyed(AMGraph  G){ 
+        //本题情境下无需处理path
     for (int i = 0; i < G.vexnum; i++)
         for (int j = 0; j < G.vexnum; j++) {
             D[i][j] = G.arcs[i][j];
