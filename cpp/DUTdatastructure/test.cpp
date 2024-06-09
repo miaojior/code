@@ -1,44 +1,73 @@
-#include <stdio.h>
+#  include  <stdio.h>
+#  include  <malloc.h>
+#  include  <string.h>          //������strcmp(str1,  str2);����
+  
+//����һ���ṹ������
+struct  Student
+{
+        char  name[101];    
+        int  score;
+        int  age;
+};
 
-#define MAXSIZE 100
-
-// 定义顺序栈结构
-typedef struct {
-    int data[MAXSIZE];
-    int top; // 栈顶指针
-} SeqStack;
-
-// 十进制转八进制函数
-int DecimalToOctal(int dec) {
-    SeqStack s;
-    s.top = -1;
-
-    // 将十进制数不断除以8，并将余数入栈
-    while (dec > 0) {
-        if (s.top == MAXSIZE - 1) {
-            printf("Stack Overflow\n");
-            return -1;
-        }
-        s.data[++s.top] = dec % 8;
-        dec /= 8;
-    }
-
-    // 从栈中依次出栈，得到八进制数
-    int octal = 0;
-    while (s.top != -1) {
-        octal = octal * 10 + s.data[s.top--];
-    }
-
-    return octal;
+void  sort(struct  Student  *  pArr,  int  N)    
+{
+	for(int i=0;i<N-1;i++)
+	{
+		for(int j=0;j<N-1-i;j++)
+		{
+			if(pArr[j].score>pArr[j+1].score)
+			{
+				int t=pArr[j].score;
+				pArr[j].score=pArr[j+1].score;
+				pArr[j+1].score=t;
+				int k=pArr[j].age;
+				pArr[j].age=pArr[j+1].age;
+				pArr[j+1].age=k;
+				char s=*pArr[j].name;
+				*pArr[j].name=*pArr[j+1].name;
+				*pArr[j+1].name=s;
+			}
+			else if(pArr[j].score==pArr[j+1].score&&strcmp(pArr[j].name,pArr[j+1].name)>0)
+			{
+				int k=pArr[j].age;
+				pArr[j].age=pArr[j+1].age;
+				pArr[j+1].age=k;
+				char s=*pArr[j].name;
+				*pArr[j].name=*pArr[j+1].name;
+				*pArr[j+1].name=s;
+			}
+			else if(pArr[j].score==pArr[j+1].score&&strcmp(pArr[j].name,pArr[j+1].name)==0&&pArr[j].age>pArr[j+1].age)
+			{
+				int k=pArr[j].age;
+				pArr[j].age=pArr[j+1].age;
+				pArr[j+1].age=k;
+			}
+		}
+	}
 }
 
-int main() {
-    int decimal;
-    printf("Enter a decimal number: ");
-    scanf("%d", &decimal);
-
-    int octal = DecimalToOctal(decimal);
-    printf("Octal equivalent: %d\n", octal);
-
-    return 0;
+int  main()
+{
+                int  i;
+                int  N;
+                struct  Student  *  pArr;    
+                while(scanf("%d",  &N)!=EOF)
+        {
+                              //�����ڴ�
+                                pArr  =  (struct  Student  *)malloc(sizeof(struct  Student)*N);
+                        //����
+                        for(  i=0;  i<N;  i++)
+                        scanf("%s  %d  %d",  pArr[i].name,  &pArr[i].age,  &pArr[i].score);
+                          
+                        //����    ��Ҫʵ��
+                                sort(pArr,  N);
+                        //����  ��Ҫʵ��
+                  
+                                //���      
+                        for(  i=0;  i<N;  i++)
+                                  printf("%s  %d  %d\n",  pArr[i].name,  pArr[i].age,  pArr[i].score);
+        }
+  
+        return  0;
 }
