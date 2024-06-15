@@ -1,6 +1,8 @@
 #include <iostream>
 
+using namespace std;
+
 int main(){
-    std::cout<<"Hello World"<<std::endl;
+    cout<< (-13)%(14)<<endl;
     return 0;
 }
